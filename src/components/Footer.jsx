@@ -50,11 +50,11 @@ function Footer() {
         </div>
       </div>
 
-      {/* Middle: Oversized Bold Brand Name with Hero black-on-red theme */}
-      <div className="relative z-10 py-12 sm:py-16 md:py-20 text-center overflow-hidden">
-        <h2 className="text-[13vw] sm:text-[14vw] md:text-[14vw] leading-none font-black tracking-tighter lowercase text-black whitespace-nowrap drop-shadow-md">
+      {/* Middle: Oversized Bold Brand Name with Hero black-on-red theme & interactive hover */}
+      <div className="relative z-10 py-12 sm:py-16 md:py-20 text-center overflow-hidden group cursor-pointer">
+        <h2 className="text-[13vw] sm:text-[14vw] md:text-[14vw] leading-none font-black tracking-tighter lowercase text-black group-hover:text-white transition-colors duration-500 ease-in-out whitespace-nowrap drop-shadow-md select-none inline-block">
           {personalInfo.brandName.toLowerCase()}
-          <span className="text-white drop-shadow-lg">.</span>
+          <span className="text-white group-hover:text-black transition-colors duration-500 ease-in-out drop-shadow-lg">.</span>
         </h2>
       </div>
 
