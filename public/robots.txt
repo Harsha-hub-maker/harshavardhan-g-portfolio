@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-SITE-URL/sitemap.xml
+Sitemap: https://my-portfolio-eight-ebon-x4d4ec6l85.vercel.app/sitemap.xml

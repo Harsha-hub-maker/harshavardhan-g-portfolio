@@ -2,7 +2,7 @@
 
 Personal developer portfolio showcasing Java Full Stack projects, technical skills, and professional experience.
 
-🌐 **Live site:** https://YOUR-SITE-URL/
+🌐 **Live site:** https://my-portfolio-eight-ebon-x4d4ec6l85.vercel.app/
 
 ---
 
