@@ -1,3 +1,4 @@
+import { Component } from 'react'
 import SplashCursor from './components/SplashCursor'
 import Preloader from './components/Preloader'
 import Navbar from './components/Navbar'
@@ -13,16 +14,33 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { internshipsList, leadershipList } from './data/portfolioData'
 
+// Error boundary so a WebGL / SplashCursor failure never kills the page
+class SplashErrorBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+  render() {
+    if (this.state.hasError) return null // Silently drop the cursor effect
+    return this.props.children
+  }
+}
+
 function App() {
   return (
     <>
-      <SplashCursor
-        VELOCITY_DISSIPATION={3}
-        SPLAT_FORCE={3500}
-        COLOR_UPDATE_SPEED={18}
-        COLOR="#ffffff"
-        RAINBOW_MODE={false}
-      />
+      <SplashErrorBoundary>
+        <SplashCursor
+          VELOCITY_DISSIPATION={3}
+          SPLAT_FORCE={3500}
+          COLOR_UPDATE_SPEED={18}
+          COLOR="#ffffff"
+          RAINBOW_MODE={false}
+        />
+      </SplashErrorBoundary>
       <Preloader />
       <Navbar />
       <Hero />

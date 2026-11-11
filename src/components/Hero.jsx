@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
 import AOS from 'aos'
-import 'aos/dist/aos.css'
 import heroVideo from '../assets/hero/hero.mp4'
 import heroPoster from '../assets/about/profile.png'
 import { heroContent, socialLinks } from '../data/portfolioData'
@@ -9,10 +8,8 @@ function Hero() {
   const videoRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
-  // Initialize AOS once; refresh after window load to handle layout shifts
+  // Refresh AOS after the page fully loads to account for layout shifts
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true, easing: 'ease-out' })
-
     const handleLoad = () => AOS.refresh()
     window.addEventListener('load', handleLoad)
     return () => window.removeEventListener('load', handleLoad)
