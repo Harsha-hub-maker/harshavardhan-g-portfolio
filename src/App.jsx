@@ -1,4 +1,5 @@
-import { Component } from 'react'
+import { Component, useEffect } from 'react'
+import AOS from 'aos'
 import SplashCursor from './components/SplashCursor'
 import Preloader from './components/Preloader'
 import Navbar from './components/Navbar'
@@ -30,8 +31,24 @@ class SplashErrorBoundary extends Component {
 }
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out',
+      offset: 60,
+    })
+
+    // Refresh after DOM layout has settled
+    const timer = setTimeout(() => {
+      AOS.refresh()
+    }, 300)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
-    <>
+    <div className="w-full min-h-screen bg-black text-white overflow-x-clip relative">
       <SplashErrorBoundary>
         <SplashCursor
           VELOCITY_DISSIPATION={3}
@@ -53,8 +70,9 @@ function App() {
       <SoftSkills />
       <Contact />
       <Footer />
-    </>
+    </div>
   )
 }
 
 export default App
+

@@ -8,8 +8,9 @@ function Hero() {
   const videoRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
 
-  // Refresh AOS after the page fully loads to account for layout shifts
+  // Refresh AOS after mount and window load
   useEffect(() => {
+    AOS.refresh()
     const handleLoad = () => AOS.refresh()
     window.addEventListener('load', handleLoad)
     return () => window.removeEventListener('load', handleLoad)

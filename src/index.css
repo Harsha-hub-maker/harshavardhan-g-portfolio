@@ -15,7 +15,6 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -26,3 +25,9 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
 }
+
+/* Ensure AOS animations work smoothly and fallback if JS animation is slow */
+[data-aos] {
+  pointer-events: auto;
+}
+
